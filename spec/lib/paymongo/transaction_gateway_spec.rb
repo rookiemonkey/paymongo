@@ -109,5 +109,102 @@ module Paymongo
         end
       end
     end
+
+    describe '.create_payment_method' do
+      it 'responds to create_payment_method' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('create_payment_method')).to eq(true)
+      end
+    end
+
+    describe '.retrieve_payment_method' do
+      it 'responds to retrieve_payment_method' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('retrieve_payment_method')).to eq(true)
+      end
+    end
+
+    describe '.create_payment_intent' do
+      it 'responds to create_payment_intent' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('create_payment_intent')).to eq(true)
+      end
+    end
+
+    describe '.retrieve_payment_intent' do
+      it 'responds to retrieve_payment_intent' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('retrieve_payment_intent')).to eq(true)
+      end
+    end
+
+    describe '.attach_to_payment_intent' do
+      it 'responds to attach_to_payment_intent' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('attach_to_payment_intent')).to eq(true)
+      end
+    end
+
+    describe '.create_sources' do
+      it 'responds to create_sources' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('create_sources')).to eq(true)
+      end
+    end
+
+    describe '.retrieve_sources' do
+      it 'responds to retrieve_sources' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('retrieve_sources')).to eq(true)
+      end
+    end
+
+    describe '.create_payments' do
+      it 'responds to create_payments' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('create_payments')).to eq(true)
+      end
+    end
+
   end
 end
