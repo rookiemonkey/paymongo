@@ -206,5 +206,124 @@ module Paymongo
       end
     end
 
+    describe '.list_all_payments' do
+      it 'responds to list_all_payments' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('list_all_payments')).to eq(true)
+      end
+    end
+
+    describe '.retrieve_payment' do
+      it 'responds to retrieve_payment' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('retrieve_payment')).to eq(true)
+      end
+    end
+
+    describe '.create_token' do
+      it 'responds to create_token' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('create_token')).to eq(true)
+      end
+    end
+
+    describe '.retrieve_token' do
+      it 'responds to retrieve_token' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('retrieve_token')).to eq(true)
+      end
+    end
+
+    describe '.create_webhook' do
+      it 'responds to create_webhook' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('create_webhook')).to eq(true)
+      end
+    end
+
+    describe '.disable_webhook' do
+      it 'responds to disable_webhook' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('disable_webhook')).to eq(true)
+      end
+    end
+
+    describe '.enable_webhook' do
+      it 'responds to enable_webhook' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('enable_webhook')).to eq(true)
+      end
+    end
+
+    describe '.list_all_webhooks' do
+      it 'responds to list_all_webhooks' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('list_all_webhooks')).to eq(true)
+      end
+    end
+
+    describe '.retrieve_webhook' do
+      it 'responds to retrieve_webhook' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('retrieve_webhook')).to eq(true)
+      end
+    end
+
+    describe '.update_webhook' do
+      it 'responds to update_webhook' do
+        gateway = described_class.new(Paymongo::Gateway.new(
+          public_key: 'some_public_key',
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
+        ))
+
+        expect(gateway.respond_to?('update_webhook')).to eq(true)
+      end
+    end
   end
 end

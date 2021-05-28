@@ -1,12 +1,3 @@
-require 'paymongo/gateway/payment_intent/create'
-require 'paymongo/gateway/payment_intent/retrieve'
-require 'paymongo/gateway/payment_intent/attach'
-require 'paymongo/gateway/payment_method/create'
-require 'paymongo/gateway/payment_method/retrieve'
-require 'paymongo/gateway/sources/create'
-require 'paymongo/gateway/sources/retrieve'
-require 'paymongo/gateway/payments/create'
-
 module Paymongo
   class TransactionGateway
 
@@ -66,6 +57,16 @@ module Paymongo
       self.extend(Sources::Create)
       self.extend(Sources::Retrieve)
       self.extend(Payments::Create)
+      self.extend(Payments::List)
+      self.extend(Payments::Retrieve)
+      self.extend(Tokens::Create)
+      self.extend(Tokens::Retrieve)
+      self.extend(Webhooks::Create)
+      self.extend(Webhooks::Disable)
+      self.extend(Webhooks::Enable)
+      self.extend(Webhooks::List)
+      self.extend(Webhooks::Retrieve)
+      self.extend(Webhooks::Update)
     end
   end
 end
