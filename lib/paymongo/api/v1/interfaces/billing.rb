@@ -10,7 +10,7 @@ module Paymongo
             @name = attributes[:name] || nil
             @email = attributes[:email] || nil
             @phone = attributes[:phone] || nil
-            @address = Paymongo::Api::V1::Interfaces::Address.new(attributes[:address])
+            @address = attributes[:address] ? Paymongo::Api::V1::Interfaces::Address.new(attributes[:address]) : nil
           end
 
           private
