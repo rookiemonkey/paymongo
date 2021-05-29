@@ -57,5 +57,33 @@ module Paymongo
         expect { described_class.new(attributes) }.to raise_error(PaymongoError)
       end
     end
+
+    describe '.to_hash' do
+      let(:card) { described_class.new(attributes) }
+
+      it 'returns a hash' do
+        expect(card.to_hash.class).to eq(ActiveSupport::HashWithIndifferentAccess)
+      end
+
+      it 'can be accessed thru string' do
+        expect(card.to_hash['card_number']).to eq(attributes[:card_number])
+      end
+
+      it 'can be accessed thru symbol' do
+        expect(card.to_hash[:card_number]).to eq(attributes[:card_number])
+      end
+    end
+
+    describe '.as_json_string' do
+      let(:card) { described_class.new(attributes) }
+
+      it 'returns a string' do
+        expect(card.as_json_string.class).to eq(String)
+      end
+
+      it 'returns a json version of its attributes' do
+        expect(JSON.parse(card.as_json_string)).to eq({ 'data' => { 'attributes' => card.to_hash } })
+      end
+    end
   end
 end

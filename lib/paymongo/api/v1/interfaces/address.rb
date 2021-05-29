@@ -3,6 +3,7 @@ module Paymongo
     module V1
       module Interfaces
         class Address
+          include Paymongo::Api::V1::Hashable
           attr_reader :line1, :line2, :city, :state, :postal_code, :country
 
           def initialize(attributes = {})

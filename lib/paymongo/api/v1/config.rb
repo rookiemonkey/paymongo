@@ -1,3 +1,4 @@
+require 'paymongo/api/v1/utilities'
 require 'paymongo/api/v1/interfaces/card'
 require 'paymongo/api/v1/interfaces/address'
 require 'paymongo/api/v1/interfaces/billing'

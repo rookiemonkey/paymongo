@@ -70,5 +70,33 @@ module Paymongo
         expect(described_class.new(attributes).address).to eq(nil)
       end
     end
+
+    describe '.to_hash' do
+      let(:billing) { described_class.new(attributes) }
+
+      it 'returns a hash' do
+        expect(billing.to_hash.class).to eq(ActiveSupport::HashWithIndifferentAccess)
+      end
+
+      it 'can be accessed thru string' do
+        expect(billing.to_hash['name']).to eq(attributes[:name])
+      end
+
+      it 'can be accessed thru symbol' do
+        expect(billing.to_hash[:name]).to eq(attributes[:name])
+      end
+    end
+
+    describe '.as_json_string' do
+      let(:billing) { described_class.new(attributes) }
+
+      it 'returns a string' do
+        expect(billing.as_json_string.class).to eq(String)
+      end
+
+      it 'returns a json version of its attributes' do
+        expect(JSON.parse(billing.as_json_string)).to eq({ 'data' => { 'attributes' => billing.to_hash } })
+      end
+    end
   end
 end

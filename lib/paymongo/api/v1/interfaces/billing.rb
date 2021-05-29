@@ -3,6 +3,7 @@ module Paymongo
     module V1
       module Interfaces
         class Billing
+          include Paymongo::Api::V1::Hashable
           attr_reader :name, :email, :phone, :address
 
           def initialize(attributes = {})
