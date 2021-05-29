@@ -5,7 +5,6 @@ module Paymongo
       @gateway = gateway
       @config = gateway.config
       @config.assert_has_keys
-      self.extend_api_methods
     end
 
     def sale(attributes)
@@ -44,29 +43,6 @@ module Paymongo
       else
         raise UnexpectedError, 'expected :data'
       end
-    end
-
-    private
-
-    def extend_api_methods
-      self.extend(PaymentIntent::Create)
-      self.extend(PaymentIntent::Retrieve)
-      self.extend(PaymentIntent::Attach)
-      self.extend(PaymentMethod::Create)
-      self.extend(PaymentMethod::Retrieve)
-      self.extend(Sources::Create)
-      self.extend(Sources::Retrieve)
-      self.extend(Payments::Create)
-      self.extend(Payments::List)
-      self.extend(Payments::Retrieve)
-      self.extend(Tokens::Create)
-      self.extend(Tokens::Retrieve)
-      self.extend(Webhooks::Create)
-      self.extend(Webhooks::Disable)
-      self.extend(Webhooks::Enable)
-      self.extend(Webhooks::List)
-      self.extend(Webhooks::Retrieve)
-      self.extend(Webhooks::Update)
     end
   end
 end
