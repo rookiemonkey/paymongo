@@ -1,6 +1,23 @@
 module Paymongo
   module Api
     module V1
+      module Https
+        def self.post(path, params = { transaction: nil })
+          Paymongo::Gateway.new(Paymongo::Configuration.new).config.https.post(path, params)
+        end
+
+        def self.get(path, params = nil)
+          header = { 'Content-Type': 'application/json' }
+          uri = URI.parse(path)
+          https = Net::HTTP.new(uri.host, uri.port)
+          https.use_ssl = true
+          req = Net::HTTP::Get.new(uri.path, header)
+          req.basic_auth(Paymongo.configuration.secret_key, '')
+          res = https.request(req)
+          JSON.parse(res.body).with_indifferent_access
+        end
+      end
+
       module Hashable
         def to_hash
           self.instance_variables.inject({}) do |hash_result, instance_variable|
@@ -12,7 +29,7 @@ module Paymongo
           end.with_indifferent_access
         end
 
-        def as_json_string
+        def as_request_body
           JSON.generate({ data: { attributes: self.to_hash } })
         end
       end

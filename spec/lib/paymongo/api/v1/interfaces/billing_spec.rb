@@ -87,15 +87,15 @@ module Paymongo
       end
     end
 
-    describe '.as_json_string' do
+    describe '.as_request_body' do
       let(:billing) { described_class.new(attributes) }
 
       it 'returns a string' do
-        expect(billing.as_json_string.class).to eq(String)
+        expect(billing.as_request_body.class).to eq(String)
       end
 
       it 'returns a json version of its attributes' do
-        expect(JSON.parse(billing.as_json_string)).to eq({ 'data' => { 'attributes' => billing.to_hash } })
+        expect(JSON.parse(billing.as_request_body)).to eq({ 'data' => { 'attributes' => billing.to_hash } })
       end
     end
   end

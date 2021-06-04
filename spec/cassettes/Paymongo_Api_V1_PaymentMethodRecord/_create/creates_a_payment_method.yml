@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_methods
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"type":"card","details":{"card_number":"4343434343434345","exp_month":12,"exp_year":2050,"cvc":"123"},"billing":{"name":"Makisu","email":"makisu@gmail.com","phone":"4196396","address":{"line1":"Blk1
+        Lot2 Maginhawa St.","line2":"Brgy. Iniwan","city":"Quezon City","state":"NCR","postal_code":"1117","country":"PH"}},"metadata":{"note1":"This
+        is just a test","note2":"I love XRP"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF8yekYxOFFDNmFlelNrc1BTRWV4eFl1Zk46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 04 Jun 2021 01:28:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Etag:
+      - W/"3223b6d5807f274d881d4e5897becd2b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c9b0d1f0-539a-42e0-a888-99f7bef740c7
+      X-Runtime:
+      - '0.090641'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"pm_HzKNebHUub3yT4JTadLDY1Hy","type":"payment_method","attributes":{"livemode":false,"type":"card","billing":{"address":{"city":"Quezon
+        City","country":"PH","line1":"Blk1 Lot2 Maginhawa St.","line2":"Brgy. Iniwan","postal_code":"1117","state":"NCR"},"email":"makisu@gmail.com","name":"Makisu","phone":"4196396"},"created_at":1622770126,"updated_at":1622770126,"details":{"exp_month":12,"exp_year":2050,"last4":"4345"},"metadata":{"note1":"This
+        is just a test","note2":"I love XRP"}}}}'
+    http_version: 
+  recorded_at: Fri, 04 Jun 2021 01:28:47 GMT
+recorded_with: VCR 5.0.0

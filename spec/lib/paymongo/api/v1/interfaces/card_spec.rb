@@ -74,15 +74,15 @@ module Paymongo
       end
     end
 
-    describe '.as_json_string' do
+    describe '.as_request_body' do
       let(:card) { described_class.new(attributes) }
 
       it 'returns a string' do
-        expect(card.as_json_string.class).to eq(String)
+        expect(card.as_request_body.class).to eq(String)
       end
 
       it 'returns a json version of its attributes' do
-        expect(JSON.parse(card.as_json_string)).to eq({ 'data' => { 'attributes' => card.to_hash } })
+        expect(JSON.parse(card.as_request_body)).to eq({ 'data' => { 'attributes' => card.to_hash } })
       end
     end
   end

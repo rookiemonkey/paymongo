@@ -6,6 +6,7 @@ require 'yaml'
 require 'pathname'
 require 'pry-byebug'
 require 'logger'
+require 'utilities'
 
 SPEC_DIR = Pathname.new(File.dirname(__FILE__))
 TMP_DIR = SPEC_DIR.join('../tmp')
@@ -23,6 +24,8 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include Utilities
 
   config.before :suite do
     FileUtils.mkdir_p TMP_DIR
