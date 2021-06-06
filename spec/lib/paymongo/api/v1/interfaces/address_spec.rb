@@ -60,32 +60,32 @@ module Paymongo
     describe 'Valid Address Nullable' do
       it 'accepts empty line1' do
         attributes.reject! { |k,v| k == :line1 }
-        expect(described_class.new(attributes).line1).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty line2' do
         attributes.reject! { |k,v| k == :line2 }
-        expect(described_class.new(attributes).line2).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty city' do
         attributes.reject! { |k,v| k == :city }
-        expect(described_class.new(attributes).city).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty state' do
         attributes.reject! { |k,v| k == :state }
-        expect(described_class.new(attributes).state).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty postal_code' do
         attributes.reject! { |k,v| k == :postal_code }
-        expect(described_class.new(attributes).postal_code).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty country' do
         attributes.reject! { |k,v| k == :country }
-        expect(described_class.new(attributes).country).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
     end
 

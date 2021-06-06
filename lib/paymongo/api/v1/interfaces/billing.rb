@@ -8,9 +8,9 @@ module Paymongo
 
           def initialize(attributes = {})
             validate_data_types(attributes)
-            @name = attributes[:name] || nil
-            @email = attributes[:email] || nil
-            @phone = attributes[:phone] || nil
+            @name = attributes[:name]
+            @email = attributes[:email]
+            @phone = attributes[:phone]
             @address = attributes[:address] ? Interfaces::Address.new(attributes[:address]) : nil
           end
 
@@ -28,7 +28,7 @@ module Paymongo
               email: String,
               phone: String,
               address: Hash
-            }
+            }.with_indifferent_access
           end
         end
       end

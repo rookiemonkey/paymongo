@@ -49,25 +49,47 @@ module Paymongo
       end
     end
 
-    describe 'Valid Billing' do
+    describe 'Valid Billing Nullable' do
       it 'accepts empty name' do
         attributes.reject! { |k,v| k == :name }
-        expect(described_class.new(attributes).name).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty email' do
         attributes.reject! { |k,v| k == :email }
-        expect(described_class.new(attributes).email).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty phone' do
         attributes.reject! { |k,v| k == :phone }
-        expect(described_class.new(attributes).phone).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
       end
 
       it 'accepts empty address' do
         attributes.reject! { |k,v| k == :address }
-        expect(described_class.new(attributes).address).to eq(nil)
+        expect { described_class.new(attributes) }.not_to raise_error
+      end
+    end
+
+    describe 'Valid Billing Nullable' do
+      it 'accepts empty name' do
+        attributes.reject! { |k,v| k == :name }
+        expect { described_class.new(attributes) }.not_to raise_error
+      end
+
+      it 'accepts empty email' do
+        attributes.reject! { |k,v| k == :email }
+        expect { described_class.new(attributes) }.not_to raise_error
+      end
+
+      it 'accepts empty phone' do
+        attributes.reject! { |k,v| k == :phone }
+        expect { described_class.new(attributes) }.not_to raise_error
+      end
+
+      it 'accepts empty address' do
+        attributes.reject! { |k,v| k == :address }
+        expect { described_class.new(attributes) }.not_to raise_error
       end
     end
 

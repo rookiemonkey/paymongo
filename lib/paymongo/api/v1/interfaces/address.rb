@@ -8,12 +8,12 @@ module Paymongo
 
           def initialize(attributes = {})
             validate_data_types(attributes)
-            @line1 = attributes[:line1] || nil
-            @line2 = attributes[:line2] || nil
-            @city = attributes[:city] || nil
-            @state = attributes[:state] || nil
-            @postal_code = attributes[:postal_code] || nil
-            @country = attributes[:country] || nil
+            @line1 = attributes[:line1]
+            @line2 = attributes[:line2]
+            @city = attributes[:city]
+            @state = attributes[:state]
+            @postal_code = attributes[:postal_code]
+            @country = attributes[:country]
           end
 
           private
@@ -32,7 +32,7 @@ module Paymongo
               state: String,
               postal_code: String,
               country: String
-            }
+            }.with_indifferent_access
           end
         end
       end

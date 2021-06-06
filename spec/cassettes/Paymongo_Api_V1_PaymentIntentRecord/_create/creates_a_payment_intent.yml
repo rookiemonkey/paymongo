@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_intents
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"amount":100000,"payment_method_allowed":["card"],"payment_method_options":{"card":{"request_three_d_secure":"any"}},"currency":"PHP","description":"Test
+        Description","statement_descriptor":"Test Statement Descriptor","metadata":{"note1":"This
+        is just a test","note2":"I love XRP"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF8yekYxOFFDNmFlelNrc1BTRWV4eFl1Zk46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 05 Jun 2021 09:21:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Etag:
+      - W/"8676e6f5931df116f7e7a3bc8dd89920"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ece0fdf5-cd3a-48c7-9335-9337f6b02b9b
+      X-Runtime:
+      - '0.029073'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"pi_mFVmCm1xVzqgfv3S5A5KzVWV","type":"payment_intent","attributes":{"amount":100000,"currency":"PHP","description":"Test
+        Description","statement_descriptor":"Test Statement Descriptor","status":"awaiting_payment_method","livemode":false,"client_key":"pi_mFVmCm1xVzqgfv3S5A5KzVWV_client_Kny1Jx9tcpMqu8C34pHvCMnW","created_at":1622884903,"updated_at":1622884903,"last_payment_error":null,"payment_method_allowed":["card"],"payments":[],"next_action":null,"payment_method_options":{"card":{"request_three_d_secure":"any"}},"metadata":{"note2":"I
+        love XRP","note1":"This is just a test"}}}}'
+    http_version: 
+  recorded_at: Sat, 05 Jun 2021 09:21:43 GMT
+recorded_with: VCR 5.0.0

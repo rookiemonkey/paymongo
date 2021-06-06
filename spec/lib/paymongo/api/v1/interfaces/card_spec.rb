@@ -36,7 +36,29 @@ module Paymongo
       end
     end
 
-    describe 'Invalid Card' do
+    describe 'Invalid Card Required Fields' do
+      it 'doesnt accept w/o a card_number' do
+        attributes.reject! { |k,v| k == :card_number }
+        expect { described_class.new(attributes) }.to raise_error(PaymongoError)
+      end
+
+      it 'doesnt accept w/o an exp_month' do
+        attributes.reject! { |k,v| k == :exp_month }
+        expect { described_class.new(attributes) }.to raise_error(PaymongoError)
+      end
+
+      it 'doesnt accept w/o an exp_year' do
+        attributes.reject! { |k,v| k == :exp_year }
+        expect { described_class.new(attributes) }.to raise_error(PaymongoError)
+      end
+
+      it 'doesnt accept w/o an cvc' do
+        attributes.reject! { |k,v| k == :cvc }
+        expect { described_class.new(attributes) }.to raise_error(PaymongoError)
+      end
+    end
+
+    describe 'Invalid Card Wrong Data Types' do
       it 'raise PaymongoError for card_number that is not a String' do
         attributes[:card_number] = attributes[:card_number].to_i
         expect { described_class.new(attributes) }.to raise_error(PaymongoError)

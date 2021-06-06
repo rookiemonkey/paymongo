@@ -3,7 +3,7 @@ require 'spec_helper'
 module Paymongo
   RSpec.describe Api::V1::PaymentMethodRecord do
     let(:payment_method) do
-      Paymongo::Api::V1::PaymentMethodRecord.new({
+      described_class.new({
         details:{ 
           card_number: '4343434343434345', 
           exp_month: 12, 
@@ -43,6 +43,24 @@ module Paymongo
       end
     end
 
+    describe 'instance variables' do
+      it 'has type instance variable' do
+        expect(payment_method.respond_to?('type')).to eq(true)
+      end
+
+      it 'has details instance variable' do
+        expect(payment_method.respond_to?('details')).to eq(true)
+      end
+
+      it 'has billing instance variable' do
+        expect(payment_method.respond_to?('billing')).to eq(true)
+      end
+
+      it 'has metadata instance variable' do
+        expect(payment_method.respond_to?('metadata')).to eq(true)
+      end
+    end
+
     describe '.create' do
       it 'responds to create method' do
         expect(described_class.respond_to?('create')).to eq(true)
@@ -63,8 +81,8 @@ module Paymongo
       end
 
       it 'returns the payment method from Paymongo API', { vcr: { record: :once, match_requests_on: %i[method] } } do
-        payment_method = cassette_response('Paymongo_Api_V1_PaymentMethodRecord/_create/creates_a_payment_method.yml')
-        expect(described_class.retrieve(payment_method['data']['id'])).to eq(payment_method)
+        response = cassette_response('Paymongo_Api_V1_PaymentMethodRecord/_create/creates_a_payment_method.yml')
+        expect(described_class.retrieve(response['data']['id'])).to eq(response)
       end
     end
   end

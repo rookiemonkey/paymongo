@@ -22,8 +22,8 @@ module Paymongo
             Paymongo::Api::V1::Https.post(base_url, resource.as_request_body)
           end
 
-          def self.retrieve(resource)
-            Paymongo::Api::V1::Https.get("#{base_url}/#{resource}")
+          def self.retrieve(payment_method_id)
+            Paymongo::Api::V1::Https.get("#{base_url}/#{payment_method_id}")
           end
         end
       end

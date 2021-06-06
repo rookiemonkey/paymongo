@@ -1,0 +1,155 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_methods
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"type":"card","details":{"card_number":"4343434343434345","exp_month":12,"exp_year":2050,"cvc":"123"},"billing":null,"metadata":null}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF8yekYxOFFDNmFlelNrc1BTRWV4eFl1Zk46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 06 Jun 2021 06:22:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Etag:
+      - W/"7132fb4044ad76e64a86fe0ead70e50a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c5e1ca6d-ae4c-405d-9717-37d5db3cb280
+      X-Runtime:
+      - '0.091918'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"pm_GroZusza1UJi8J4YV5N8JfUK","type":"payment_method","attributes":{"livemode":false,"type":"card","billing":null,"created_at":1622960559,"updated_at":1622960559,"details":{"exp_month":12,"exp_year":2050,"last4":"4345"},"metadata":null}}}'
+    http_version: 
+  recorded_at: Sun, 06 Jun 2021 06:22:39 GMT
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_intents
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"amount":10000,"payment_method_allowed":["card"],"payment_method_options":{"card":{"request_three_d_secure":"any"}},"currency":"PHP","description":"Test
+        Description","statement_descriptor":"Test Statement Descriptor","metadata":{"note1":"This
+        is just a test","note2":"I love XRP"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF8yekYxOFFDNmFlelNrc1BTRWV4eFl1Zk46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 06 Jun 2021 06:22:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Etag:
+      - W/"bc086619b2d7da0751e71d6962bd8dca"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6bd2f4ae-64f5-4f08-a340-f6f5b64e4e82
+      X-Runtime:
+      - '0.035168'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"pi_vXppx1kkuu1ny5e96rPEwdTX","type":"payment_intent","attributes":{"amount":10000,"currency":"PHP","description":"Test
+        Description","statement_descriptor":"Test Statement Descriptor","status":"awaiting_payment_method","livemode":false,"client_key":"pi_vXppx1kkuu1ny5e96rPEwdTX_client_ETZj6k4nxW6ut3rpiE9NHRuT","created_at":1622960560,"updated_at":1622960560,"last_payment_error":null,"payment_method_allowed":["card"],"payments":[],"next_action":null,"payment_method_options":{"card":{"request_three_d_secure":"any"}},"metadata":{"note2":"I
+        love XRP","note1":"This is just a test"}}}}'
+    http_version: 
+  recorded_at: Sun, 06 Jun 2021 06:22:40 GMT
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_intents/pi_vXppx1kkuu1ny5e96rPEwdTX/attach
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"payment_method":"pm_GroZusza1UJi8J4YV5N8JfUK","client_key":"pi_vXppx1kkuu1ny5e96rPEwdTX_client_ETZj6k4nxW6ut3rpiE9NHRuT","return_url":"https://www.google.com/"}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF8yekYxOFFDNmFlelNrc1BTRWV4eFl1Zk46
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 06 Jun 2021 06:22:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Etag:
+      - W/"8344520ce8245671e6cff1bf8e5f53e3"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 50ea06b7-b894-4bfb-a88b-6bdb9d6f88f7
+      X-Runtime:
+      - '0.215121'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"pi_vXppx1kkuu1ny5e96rPEwdTX","type":"payment_intent","attributes":{"amount":10000,"currency":"PHP","description":"Test
+        Description","statement_descriptor":"Test Statement Descriptor","status":"succeeded","livemode":false,"client_key":"pi_vXppx1kkuu1ny5e96rPEwdTX_client_ETZj6k4nxW6ut3rpiE9NHRuT","created_at":1622960560,"updated_at":1622960560,"last_payment_error":null,"payment_method_allowed":["card"],"payments":[{"id":"pay_Hk4u5tHqr1tge1r3o27aWxFa","type":"payment","attributes":{"access_url":null,"amount":10000,"balance_transaction_id":"bal_txn_C1NWzuAfZbKXhuB8nsXFUL19","billing":null,"currency":"PHP","description":"Test
+        Description","disputed":false,"external_reference_number":null,"fee":1850,"foreign_fee":100,"livemode":false,"net_amount":8050,"origin":"api","payment_intent_id":"pi_vXppx1kkuu1ny5e96rPEwdTX","payout":null,"source":{"id":"card_SXeSGXwgkixm7qUEe9k5urYW","type":"card","brand":"visa","country":"US","last4":"4345"},"statement_descriptor":"Test
+        Statement Descriptor","status":"paid","tax_amount":null,"refunds":[],"taxes":[],"available_at":1623315600,"created_at":1622960560,"paid_at":1622960560,"updated_at":1622960560}}],"next_action":null,"payment_method_options":{"card":{"request_three_d_secure":"any"}},"metadata":{"note2":"I
+        love XRP","note1":"This is just a test"}}}}'
+    http_version: 
+  recorded_at: Sun, 06 Jun 2021 06:22:40 GMT
+recorded_with: VCR 5.0.0

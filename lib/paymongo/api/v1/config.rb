@@ -2,6 +2,8 @@ require 'paymongo/api/v1/utilities'
 require 'paymongo/api/v1/interfaces/card'
 require 'paymongo/api/v1/interfaces/address'
 require 'paymongo/api/v1/interfaces/billing'
+require 'paymongo/api/v1/interfaces/intent'
+require 'paymongo/api/v1/interfaces/intent_attachment'
 
 module Paymongo
   module Api
